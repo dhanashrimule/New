@@ -27,4 +27,15 @@ public class LoginSteps {
 	    driver.findElement(By.name("password")).sendKeys("secret_sauce");
 	    driver.findElement(By.name("login-button")).click();
 	}
+	@When("product add to card")
+	public void product_add_to_card() {
+	 driver.findElement(By.xpath("//a[@class='shopping_cart_link']")).click();
+	}
+
+	@When("cheakout")
+	public void cheakout() {
+		driver.findElement(By.xpath("//button[@id='checkout']")).click();
+	   
+	}
+
 }
