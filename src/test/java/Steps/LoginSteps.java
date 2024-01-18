@@ -7,7 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import junit.framework.Assert;
 
 public class LoginSteps {
 	public static  WebDriver driver;
@@ -26,5 +28,11 @@ public class LoginSteps {
 	    driver.findElement(By.name("user-name")).sendKeys("standard_user");
 	    driver.findElement(By.name("password")).sendKeys("secret_sauce");
 	    driver.findElement(By.name("login-button")).click();
+	}
+	@Then("user is on home page and validate home page url")
+	public void user_is_on_home_page_and_validate_home_page_url() {
+	   String actUrl=driver.getCurrentUrl();
+	   boolean a=actUrl.contains("inventory");
+	   Assert.assertEquals(a, true);
 	}
 }
